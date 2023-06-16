@@ -3,57 +3,54 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-import DuzenlemeIslemleri from './DuzenlemeIslemleri';
+import YillikPlanlar from './YillikPlanlar';
 
-const Datatable = ({ setTablo }) => {
+const DuzenlemeIslemleri = () => {
     const [selectedProducts, setSelectedProducts] = useState(null);
     const [globalFilter, setGlobalFilter] = useState(null);
-    const [duzenlemeIslemleri, setDuzenlemeIslemleri] = useState(false);
+    const [yillikPlanlar, setYillikPlanlar] = useState(false);
 
     const data = [
         {
             "id": 1,
             "durum": "AKTİF",
-            "sinif": 8,
-            "ders": "Matematik",
-            "konu": "Üslü Sayılar",
-            "icerikTip": 'Konu Anlatımı',
-            "kazanim": "MEB 7.2.3",
-            "dil": 'Türkçe',
-            "ogretmenKilavuz": "Özel Yayın",
-            "url": 'www.google.com.tr',
-            "zorluk": 'Orta',
-            "sure": '0-40',
-            "okul": 'Nesibe Aydın',
+            "sira": '1,0000',
+            "dosyaTuru": "Resim Url",
+            "gorunumEklentiTur": 'Üst Çizgi Göster',
+            "ad": "Kapak:Hoşgeldin",
+            "dosyaUrl": ''
 
         },
         {
             "id": 2,
             "durum": "AKTİF",
-            "sinif": 7,
-            "ders": "Türkçe",
-            "konu": "Anlam Bilgisi",
-            "icerikTip": 'Konu Anlatımı',
-            "kazanim": "MEB 7.2.9",
-            "dil": 'Türkçe',
-            "ogretmenKilavuz": "Özel Yayın",
-            "url": 'www.google.com.tr',
-            "zorluk": 'Zor',
-            "sure": '0-80',
-            "okul": 'Nesibe Aydın',
+            "sira": '2,0000',
+            "dosyaTuru": "Resim Url",
+            "gorunumEklentiTur": 'Üst Çizgi Göster',
+            "ad": "Özet ve Hedefler",
+            "dosyaUrl": ''
+
+        },
+        {
+            "id": 3,
+            "durum": "AKTİF",
+            "sira": '3,0000',
+            "dosyaTuru": "Resim Url",
+            "gorunumEklentiTur": 'Üst Çizgi Göster',
+            "ad": "Üslü Sayılar Nedir ? ",
+            "dosyaUrl": ''
 
         },
 
     ]
     const header = (
         <div className="table-header flex col-12">
-            <h5 className="mx-0 my-1 col-2">İÇERİKLER</h5>
+            <h3 className="mx-0 my-1 col-2">İçerik Sayfalar</h3>
             <div className='col-9 justify-content-end flex'>
                 <span className="p-input-icon-left">
-                    <i className="pi pi-search" />
-                    <InputText type="search" onInput={(e) => setGlobalFilter(e.target.value)} placeholder="Search..." />
+                    <Button className='p-button-secondary ml-4' label="Yıllık Planlara Git " onClick={()=> setYillikPlanlar(true)} ></Button>
+
                 </span>
-                <Button className='p-button-secondary ml-4' label="Düzenleme İşlemlerine Git" onClick={() => setDuzenlemeIslemleri(true)}></Button>
 
             </div>
 
@@ -77,7 +74,7 @@ const Datatable = ({ setTablo }) => {
     return (
         <>
             {
-                !duzenlemeIslemleri ? (
+                !yillikPlanlar ? (
                     <>
                         <div className="datatable-crud-demo">
 
@@ -97,27 +94,24 @@ const Datatable = ({ setTablo }) => {
                                     responsiveLayout="scroll">
                                     {/* <Column selectionMode="multiple" headerStyle={{ width: '3rem' }} exportable={false}></Column> */}
                                     <Column field="durum" header="Durum" ></Column>
-                                    <Column field="sinif" header="Sınıf" ></Column>
-                                    <Column field="ders" header="Ders" ></Column>
-                                    <Column field="konu" header="Konu" style={{ minWidth: '8rem' }}></Column>
-                                    <Column field="icerikTip" header="İçerik Tipi" style={{ minWidth: '10rem' }}></Column>
-                                    <Column field="kazanim" header="Kazanım" ></Column>
-                                    <Column field="dil" header="Dil" ></Column>
-                                    <Column field="ogretmenKilavuz" header="Öğretmen Kılavuzu" s></Column>
-                                    <Column field="url" header="URL" style={{ minWidth: '8rem' }}></Column>
-                                    <Column field="zorluk" header="Zorluk" ></Column>
-                                    <Column field="sure" header="Süre" ></Column>
-                                    <Column field="okul" header="Okul" ></Column>
+                                    <Column field="sira" header="Sıra" ></Column>
+                                    <Column field="dosyaTuru" header="Dosya Türü" ></Column>
+                                    <Column field="gorunumEklentiTur" header="Görüntüm Eklenti Tür" style={{ minWidth: '8rem' }}></Column>
+                                    <Column field="ad" header="Ad" style={{ minWidth: '10rem' }}></Column>
+                                    <Column field="dosyaUrl" header="Dosya Url" style={{ minWidth: '30rem' }}></Column>
 
                                     <Column body={actionBodyTemplate} exportable={false} style={{ minWidth: '8rem' }}></Column>
                                 </DataTable>
                             </div>
+
+
+
                         </div>
                     </>
 
                 ) : (
                     <>
-                    <DuzenlemeIslemleri/>
+                        <YillikPlanlar />
                     </>
                 )
             }
@@ -127,4 +121,4 @@ const Datatable = ({ setTablo }) => {
     );
 
 }
-export default Datatable;
+export default DuzenlemeIslemleri;

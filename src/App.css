@@ -43,27 +43,78 @@
 .powerCard {
   /* text-align: center;  */
   /* background-color: #282c34; */
-  margin: 50,50,50,50;
+  margin: 50, 50, 50, 50;
   border-radius: 10px;
   margin: 10px;
   /* display: flex; */
   flex-direction: column;
   font-size: medium;
   padding-top: 0;
-  
+
 }
+
 .powerCard .dropdown {
   align-items: center;
   justify-content: start;
 }
+
 .datatable-crud-demo .table-header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  /* align-items: center; */
+  padding: 0;
+}
+
+.datatable-crud-demo .table-header Button {
+
 }
 
 @media screen and (max-width: 960px) {
   .datatable-crud-demo .table-header {
-      align-items: flex-start;
+    align-items: flex-start;
   }
+}
+.button-group {
+  display: flex;
+  gap: 5px;
+}
+.container {
+  display: flex;
+}
+
+.left-column {
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.right-column {
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input-row label {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.input-row .p-inputtext {
+  width: 100%;
+}
+
+.dropdown-container {
+  margin-bottom: 10px;
+}
+.color::placeholder {
+  color: red; /* İstediğiniz renge uygun renk değerini burada belirtebilirsiniz */
+}
+
+.bordered-input {
+  border: 1px solid gray; /* İstediğiniz kenarlık stilini ve rengini burada belirtebilirsiniz */
 }
